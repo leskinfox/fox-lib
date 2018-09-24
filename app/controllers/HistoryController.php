@@ -35,6 +35,9 @@ class HistoryController extends Controller
 
             array_push($items, $cons->item_text_list($type, $txt, $button, "/history/cancel/$order[id]"));
         }
+        if (count($items)==0) {
+            $this->view->setVar("title", "Ваша история пуста :(");
+        }
         $this->view->setVar("items", $items);
     }
 

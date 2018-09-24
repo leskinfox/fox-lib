@@ -1,5 +1,8 @@
 
     <style>
+        h3, h5 {
+            margin-left: 24px;
+        }
         .demo-card-event.mdl-card {
             width: 256px;
             height: 256px;
@@ -31,6 +34,10 @@
             color: #fff;
         }
     </style>
+
+    <h5>
+        {{title | default("")}}
+    </h5>
 
     {% for item in items %}
         <div class="demo-card-event mdl-card mdl-shadow--2dp">
