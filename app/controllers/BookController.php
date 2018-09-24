@@ -27,7 +27,7 @@ class BookController extends Controller
             $status_text = "Книга занята";
             $link = $this->request->getHTTPReferer();
         }
-        $description = $book->about . "Фонд №" . $book->fond;
+        $description = $book->about . "<p>Фонд №" . $book->fond;
         $img = $book->img;
 
         $edit_link = $data->isAdmin() ? "/edit/index/".$book->id : "";

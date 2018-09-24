@@ -38,6 +38,9 @@
         text-decoration: none;
         color: #636363;
     }
+    .mdl-card__media {
+        max-width: 400px;
+    }
 
 
 </style>
@@ -50,7 +53,7 @@
     <div class="mdl-cell mdl-cell--8-col">
         <h2 class="mdl-card__title-text">{{ title }}</h2>
         <div class="mdl-card__supporting-text padding-top">
-            <span>{{  status_text }}</span>
+            <span><i>{{  status_text }}</i></span>
             {% if edit_link %}
             <a href="{{ edit_link }}"  id="tt1" class=" icon material-icons portfolio-share-btn">edit</a>
                 <div class="mdl-tooltip" for="tt1">
