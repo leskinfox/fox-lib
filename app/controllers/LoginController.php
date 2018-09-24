@@ -15,8 +15,11 @@ class LoginController extends Controller
     {
         $data = new Data();
         $form_data = $this->request->getPost();
+        $success = $data->prooveCapcha($form_data['g-recaptcha-response']);
         $name = $form_data['name'];
         $contact = $form_data['contact'];
+        if(!$success || !$name || !$contact)
+            return $this->response->redirect('/');
         $data->setSes('name', $name);
         $data->setSes('contact', $contact);
         $data->setCook('name', $name);

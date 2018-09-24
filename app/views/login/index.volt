@@ -28,6 +28,8 @@
             <span class="mdl-textfield__error">Введите корректный адрес или телефон</span>
         </div>
     </div>
+    <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <div align="center" class="button">
         <button type="submit" id="btn" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored element">
             Вход
