@@ -27,6 +27,8 @@ class SearchController extends Controller
         $form_data = $this->request->getQuery();
         $book_name = $form_data['book_name'];
         $book_author = $form_data['book_author'];
+        if (!$book_name && !$book_author)
+            return $this->response->redirect("/search/index");
         $books = $data->getBookList($book_name, $book_author);
         $items = array();
         foreach ($books as $book) {
