@@ -1,0 +1,12 @@
+#CONTROLLER
+$cons = new ViewConstructor();
+$items = array();
+$item = $cons->item_img_list($title, $subtitle, $img, $txt, $text_link, $link, $more_link);
+array_push($items, $item);
+$this->view->setVar("items", $items);
+
+#VIEW
+{% extends "templates/main.volt" %}
+{% block content %}
+    {% include "templates/img_list.volt"%}
+{% endblock %}

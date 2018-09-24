@@ -1,0 +1,13 @@
+#CONTROLLER
+$cons = new ViewConstructor();
+$input = $cons->input("name", "Название");
+$button = $cons->button("Найти", "right");
+$params = $cons->form("Заголовок", "Подзаголовок", "post", "/go/to", array($input, $button));
+foreach ($params as $key => $value)
+    $this->view->setVar($key, $value);
+
+#VIEW
+{% extends "templates/main.volt" %}
+{% block content %}
+    {% include "templates/form.volt"%}
+{% endblock %}

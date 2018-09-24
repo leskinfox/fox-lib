@@ -1,0 +1,8 @@
+#CONTROLLER
+$cons = new ViewConstructor();
+$params = $cons->message("Сообщение");
+foreach ($params as $key => $value)
+    $this->view->setVar($key, $value);
+
+#VIEW
+{% include "templates/message.volt"%}

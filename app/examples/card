@@ -1,0 +1,11 @@
+#CONTROLLER
+$cons = new ViewConstructor();
+$params = $cons->card($title, $status_text, $description, $img, $button, $link, $edit_link);
+foreach ($params as $key => $value)
+    $this->view->setVar($key, $value);
+
+#VIEW
+{% extends "templates/main.volt" %}
+{% block content %}
+    {% include "templates/card.volt"%}
+{% endblock %}

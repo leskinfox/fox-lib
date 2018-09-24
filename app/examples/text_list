@@ -1,0 +1,11 @@
+#CONTROLLER
+$cons = new ViewConstructor();
+$items = array();
+array_push($items, $cons->item_text_list($title, $txt, $button, "/go/to/"));
+$this->view->setVar("items", $items);
+
+#VIEW
+{% extends "templates/main.volt" %}
+{% block content %}
+    {% include "templates/text_list.volt"%}
+{% endblock %}
