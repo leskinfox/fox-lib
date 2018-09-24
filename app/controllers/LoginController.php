@@ -37,6 +37,8 @@ class LoginController extends Controller
         $data = new Data();
         $data->setSes('name', '');
         $data->setSes('contact', '');
+        $data->setCook('name', '');
+        $data->setCook('contact', '');
         return $this->response->redirect('/login/');
     }
 
