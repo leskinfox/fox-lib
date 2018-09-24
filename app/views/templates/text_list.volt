@@ -33,6 +33,9 @@
         .demo-card-event > .mdl-card__actions > .mdl-button {
             color: #fff;
         }
+        .material-icons {
+            text-decoration: none;
+        }
     </style>
 
     <h5>
