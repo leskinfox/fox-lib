@@ -12,7 +12,7 @@ class HistoryController extends Controller
     public function indexAction() {
         $data = new Data();
         $cons = new ViewConstructor();
-        $orders = array_reverse($data->getOrders());
+        $orders = array_reverse($data->getHist());
         $items = array();
         foreach($orders as $order) {
             if ($order['type'] == "book") {

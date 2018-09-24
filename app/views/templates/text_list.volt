@@ -36,6 +36,10 @@
         .material-icons {
             text-decoration: none;
         }
+        a {
+            text-decoration: none;
+            color: #fafafa;
+        }
     </style>
 
     <h5>

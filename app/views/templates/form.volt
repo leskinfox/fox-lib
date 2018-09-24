@@ -7,6 +7,10 @@
         width: 600px;
     }
 
+    img {
+        max-height: 300px;
+    }
+
 </style>
 
 <form action={{ action }} method={{ method }} class="mdl-layout__content mdl-color--grey-100">

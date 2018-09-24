@@ -117,7 +117,7 @@ class Data extends Injectable
         ));
     }
 
-    public function getOrders() {
+    public function getHist() {
         $name = $this->getName();
         $contact = $this->getContact();
         return Orders::query()
@@ -128,6 +128,22 @@ class Data extends Injectable
             ->bind(array("name" => $name, "contact" => $contact))
             ->execute()->toArray();
     }
+
+    public function getOrders() {
+        return Orders::query()
+            ->where("status = 'wait'")
+            ->orderBy("date")
+            ->execute()->toArray();
+    }
+
+    public function getOrder($id) {
+        return Orders::query()
+            ->where("id = :id:")
+            ->bind(array("id" => $id))
+            ->execute()->getFirst();
+    }
+
+
 
     public function cancelOrder($id) {
         $d = date('d-m-Y H:i:s');
