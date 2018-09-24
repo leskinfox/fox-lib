@@ -87,6 +87,12 @@ class Data extends Injectable
             ->execute();
     }
 
+    public function getOrdersCount() {
+        $orders = Orders::find(["client_name = '".$this->getName().
+            "' AND client_contact = '".$this->getContact()."' AND type = 'book'"]);
+        return count($orders);
+    }
+
     public function getBook($id)
     {
         return Books::query()

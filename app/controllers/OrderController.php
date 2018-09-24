@@ -1,5 +1,6 @@
 <?php
 use Phalcon\Mvc\Controller;
+define("ORDERS_LIMIT",     3);
 
 class OrderController extends Controller
 {
@@ -11,15 +12,19 @@ class OrderController extends Controller
 
     public function bookAction ($id) {
         $data = new Data();
-        $success = $data->bookBook($id);
         $cons = new ViewConstructor();
+        if ($data->getOrdersCount() > ORDERS_LIMIT) {
+            $params = $cons->message("Превышен лимит");
+            foreach ($params as $key => $value)
+                $this->view->setVar($key, $value);
+            return $this;
+        }
+        $success = $data->bookBook($id);
         if($success)
             return $this->response->redirect($this->request->getHTTPReferer());
         $params = $cons->message("Произошла ошибка, попробуйте позже");
         foreach ($params as $key => $value)
             $this->view->setVar($key, $value);
-
-
     }
 
 }
