@@ -1,15 +1,16 @@
 
 <style>
-
-
-
     h3, h5 {
         margin-left: 24px;
     }
-
+    .mdl-card__title {
+        text-shadow: #000000 0 0 5px;
+        text-decoration: none;
+        color: #636363;
+    }
     .demo-card-square.mdl-card {
-        width: 320px;
-        height: 400px;
+        width: 300px;
+        height: 600px;
         float: left;
         margin-top: 12px;
         margin-left: 12px;
@@ -17,13 +18,8 @@
 
     .demo-card-square > .mdl-card__title {
         color: #fff;
-        min-height: 100px;
-
-
-
-
+        min-height: 400px;
     }
-
     .author {
         margin-top: 2px;
         margin-bottom: 2px;
