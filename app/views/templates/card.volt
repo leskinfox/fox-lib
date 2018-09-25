@@ -36,7 +36,7 @@
 
     a {
         text-decoration: none;
-        color: #636363;
+        color: #000000;
     }
     .mdl-card__media {
         max-width: 400px;
@@ -51,15 +51,16 @@
         <img class="article-image" src="{{ img }}" border="0" alt="">
     </div>
     <div class="mdl-cell mdl-cell--8-col">
-        <h2 class="mdl-card__title-text">{{ title }}</h2>
+        <h2 class="mdl-card__title-text">{{ title }}
+        {% if edit_link %}
+            <a href="{{ edit_link }}"  id="tt1" class="material-icons">edit</a>
+            <div class="mdl-tooltip">
+                Редактировать
+            </div>
+        {% endif %}
+        </h2>
         <div class="mdl-card__supporting-text padding-top">
             <span><i>{{  status_text }}</i></span>
-            {% if edit_link %}
-            <a href="{{ edit_link }}"  id="tt1" class=" icon material-icons portfolio-share-btn">edit</a>
-                <div class="mdl-tooltip" for="tt1">
-                    Редактировать
-                </div>
-            {% endif %}
         </div>
         <div class="mdl-card__supporting-text no-left-padding">
             <p>{{ description }}</p>
