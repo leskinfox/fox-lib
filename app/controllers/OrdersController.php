@@ -40,13 +40,13 @@ class OrdersController extends Controller
         $order = $data->getOrder($id);
         $book_id = $order->book_id;
         $state = 'busy';
+        $data->cancelOrder($id);
         $data->updateBook(array(
             "id" => $book_id,
             "holder_name" => $order->client_name,
             "state" => $state,
             "holder_contact" => $order->client_contact
         ));
-        $data->cancelOrder($id);
         return $this->response->redirect("/edit/index/$book_id");
     }
 

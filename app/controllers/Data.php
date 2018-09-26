@@ -89,7 +89,7 @@ class Data extends Injectable
 
     public function getOrdersCount() {
         $orders = Orders::find(["client_name = '".$this->getName().
-            "' AND client_contact = '".$this->getContact()."' AND type = 'book'"]);
+            "' AND client_contact = '".$this->getContact()."' AND status = 'wait'"]);
         return count($orders);
     }
 
@@ -153,7 +153,7 @@ class Data extends Injectable
             ->execute()->getFirst();
         $book_id = $order->book_id;
         if ($book_id)
-            $this->updateBook(array( 'id'=>$book_id, 'state'=>'free'));
+            $this->updateBook(array( 'id'=>$book_id, 'state'=>'free', 'holder_name'=>'', 'holder_contact'=>''));
         return $order->update(array("status" => "cancel", "date" => $d));
     }
 
