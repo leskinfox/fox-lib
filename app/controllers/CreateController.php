@@ -4,8 +4,11 @@ class CreateController extends Controller
 {
     public function initialize() {
         $data = new Data();
-        $this->view->setVar("admin", $data->isAdmin());
+        if (!$data->isAdmin())
+            return $this->view->pick('404/404');
+        $this->view->setVar("admin", true);
         $this->view->setVar("user_name", $data->getName());
+
     }
 
     public function indexAction() {
