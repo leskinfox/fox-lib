@@ -10,7 +10,7 @@
 <body>
 <div class="head-line">
     <h2>404 Страница не найдена:(</h2>
-    <h4><a href="/home/">Перейти на главную</a></h4>
+    <h4><a href="/">Перейти на главную</a></h4>
     <img src=/img/fox_logo.png>
 </div>
 </body>
