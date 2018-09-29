@@ -31,9 +31,11 @@ class EditController extends Controller
             array("name"=>"busy", "label"=>"На руках"),
             array("name"=>"free", "label"=>"Свободна"),
             array("name"=>"wait", "label"=>"Ждёт")), $book->state);
+        $del = $cons->checkbox("del", "Удалить", false);
         $button = $cons->button("Изменить", "right");
         $params = $cons->form("Редактирование книги", "", "post", "/edit/apply/".$id,
-            array($name, $author, $fond, $about, $img, $pic, $comment, $holder_name, $holder_contact, $state, $button));
+            array($name, $author, $fond, $about, $img, $pic, $comment,
+                $holder_name, $holder_contact, $state, $del, $button));
         foreach ($params as $key => $value)
             $this->view->setVar($key, $value);
     }
@@ -42,6 +44,18 @@ class EditController extends Controller
     {
         $data = new Data();
         $post = $this->request->getPost();
+        if ($post['del']) {
+            $success = $data->delBook($id);
+            if ($success)
+                $msg = "Книга удалена";
+            else
+                $msg = "Неудача";
+            $cons = new ViewConstructor();
+            $params = $cons->message($msg);
+            foreach ($params as $key => $value)
+                $this->view->setVar($key, $value);
+            return $this;
+        }
         $success = $data->updateBook(array(
             "id" => $id,
             "name" => $post['book_name'],

@@ -101,6 +101,14 @@ class Data extends Injectable
             ->execute()->getFirst();
     }
 
+    public function delBook($id)
+    {
+        return Books::query()
+            ->where("id = :id:")
+            ->bind(array("id" => $id))
+            ->execute()->getFirst()->delete();
+    }
+
     public function sendGift($book_name, $book_author, $user_name, $user_contact, $comment)
     {
         $orders = new Orders();
