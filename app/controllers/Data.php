@@ -25,7 +25,7 @@ class Data extends Injectable
     }
 
     public function grab($url, $start, $end) {
-        $str = file_get_contents($url);
+        $str = mb_convert_encoding(file_get_contents($url), 'HTML-ENTITIES', "UTF-8");
         $arr1 = explode($start, $str, 2);
         if (count($arr1)<2)
             return "";
