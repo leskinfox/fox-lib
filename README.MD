@@ -1,6 +1,6 @@
 # Учет книг для домашней библиотеки leskinfox.ru
 
-[![N|Solid](http://leskinfox.ru/img/fox.png)](leskinfox.ru)
+[![N|Solid](http://leskinfox.ru/public/img/fox.png)](http://leskinfox.ru)
 
 Контроль книг в библиотеке, резерв, выдача, добавление.
 
